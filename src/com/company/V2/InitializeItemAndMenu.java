@@ -1,8 +1,8 @@
 package com.company.V2;
 
 
-import com.company.V2.entity.Item;
-import com.company.V2.entity.Menu;
+import com.company.V2.domain.Item;
+import com.company.V2.domain.Menu;
 
 import java.util.ArrayList;
 import java.util.List;

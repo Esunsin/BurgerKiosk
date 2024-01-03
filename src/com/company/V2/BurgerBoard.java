@@ -1,9 +1,8 @@
 package com.company.V2;
 
-import com.company.V2.entity.Item;
+import com.company.V2.domain.Item;
 
 import java.util.List;
-import java.util.Scanner;
 
 public class BurgerBoard {
 

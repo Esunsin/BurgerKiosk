@@ -1,4 +1,4 @@
-package com.company.V2.entity;
+package com.company.V2.domain;
 
 import java.util.ArrayList;
 import java.util.List;

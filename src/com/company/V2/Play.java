@@ -1,9 +1,9 @@
 package com.company.V2;
 
 
-import com.company.V2.entity.Item;
-import com.company.V2.entity.Menu;
-import com.company.V2.entity.Orders;
+import com.company.V2.domain.Item;
+import com.company.V2.domain.Menu;
+import com.company.V2.domain.Orders;
 
 import java.util.ArrayList;
 import java.util.List;

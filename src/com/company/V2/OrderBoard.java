@@ -1,9 +1,7 @@
 package com.company.V2;
 
-import com.company.V2.entity.Item;
-import com.company.V2.entity.Orders;
-
-import java.util.Scanner;
+import com.company.V2.domain.Item;
+import com.company.V2.domain.Orders;
 
 public class OrderBoard {
     void printOrders(Orders orders){

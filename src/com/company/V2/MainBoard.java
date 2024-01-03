@@ -1,6 +1,6 @@
 package com.company.V2;
 
-import com.company.V2.entity.Menu;
+import com.company.V2.domain.Menu;
 
 import java.util.List;
 

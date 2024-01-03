@@ -1,4 +1,4 @@
-package com.company.V2.entity;
+package com.company.V2.domain;
 
 public class Item extends Menu {
 
