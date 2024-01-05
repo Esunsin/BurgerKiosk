@@ -4,10 +4,10 @@ import com.company.V4.domain.Item;
 
 import java.util.List;
 
-public class BurgerBoard {
+public class ItemBoard {
 
-    public void printBurgerBoard(List<Item> itemList){
-        System.out.println("[ Burgers MENU ]");
+    public void printItemBoard(List<Item> itemList){
+        System.out.println("[ "+ itemList.get(0).getCategory() +" MENU ]");
         int i=1;
         for (Item item : itemList) {
             System.out.println(i + ". " + item.getName() + "\t| W "

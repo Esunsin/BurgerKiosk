@@ -26,12 +26,15 @@ public class Kiosk {
         InitializeItemAndMenu initializeItemAndMenu = new InitializeItemAndMenu();
         List<Menu> menus = initializeItemAndMenu.initMenu();
         List<Item> burger = initializeItemAndMenu.initBurger();
+        List<Item> frozen = initializeItemAndMenu.initFrozenCustard();
+        List<Item> drink = initializeItemAndMenu.initDrink();
+        List<Item> beer = initializeItemAndMenu.initBeer();
 
         TotalOrders totalOrders =new TotalOrders();
 
         //할당
         MainBoard mainBoard = new MainBoard();
-        BurgerBoard burgerBoard = new BurgerBoard();
+        ItemBoard itemBoard = new ItemBoard();
         BuyBoard buyBoard = new BuyBoard();
         OrderBoard orderBoard = new OrderBoard();
         OrderCompletedBoard orderCompletedBoard = new OrderCompletedBoard();
@@ -39,7 +42,6 @@ public class Kiosk {
         TotalOrdersBoard totalOrdersBoard = new TotalOrdersBoard();
 
         int menuCount = menus.size();
-        int burgerCount = burger.size();
 
         int waitingNumber = 1;
         while(true) {
@@ -54,23 +56,50 @@ public class Kiosk {
                 totalOrdersBoard.printTotalOrdersBoard(totalOrders);
                 totalOrdersBoard.backToMainBoard();
             }
-            //burgerBoard
+            //burger
             if (inputMenu == 1) {
-                burgerBoard.printBurgerBoard(burger);
+                itemBoard.printItemBoard(burger);
 
-                int inputItemNumber = buyBoard.printSelectBuyItem(burgerCount);
+                int inputItemNumber = buyBoard.printSelectBuyItem(burger.size());
                 Item selectedItem = burger.get(inputItemNumber);
 
                 if(buyBoard.isBuyItem(selectedItem)){
                     orders.addOrder(selectedItem);
                 }
             }
+            //frozen custard
+            if (inputMenu == 2) {
+                itemBoard.printItemBoard(frozen);
 
-            // 메뉴 다른 거 만들으면 됨.
-            if(inputMenu >= 2 && inputMenu <= menuCount){
-                System.out.println("아직 메뉴가 없음");
+                int inputItemNumber = buyBoard.printSelectBuyItem(frozen.size());
+                Item selectedItem = frozen.get(inputItemNumber);
+
+                if(buyBoard.isBuyItem(selectedItem)){
+                    orders.addOrder(selectedItem);
+                }
             }
+            //drink
+            if (inputMenu == 3) {
+                itemBoard.printItemBoard(drink);
 
+                int inputItemNumber = buyBoard.printSelectBuyItem(drink.size());
+                Item selectedItem = drink.get(inputItemNumber);
+
+                if(buyBoard.isBuyItem(selectedItem)){
+                    orders.addOrder(selectedItem);
+                }
+            }
+            //beer
+            if (inputMenu == 4) {
+                itemBoard.printItemBoard(beer);
+
+                int inputItemNumber = buyBoard.printSelectBuyItem(beer.size());
+                Item selectedItem = beer.get(inputItemNumber);
+
+                if(buyBoard.isBuyItem(selectedItem)){
+                    orders.addOrder(selectedItem);
+                }
+            }
             //orderBoard
             if (inputMenu == menuCount + 1) {
                 if (orderBoard.isOrders(orders)) {
@@ -87,7 +116,8 @@ public class Kiosk {
             }
 
             //종료
-            if(inputMenu == 9){
+            if(inputMenu > menuCount+2){
+                System.out.println("메뉴에 없는 숫자입니다. 종료하겠습니다.");
                 break;
             }
         }

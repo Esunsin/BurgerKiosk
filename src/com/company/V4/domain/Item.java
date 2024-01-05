@@ -6,6 +6,10 @@ public class Item extends Menu {
     private int quantity;
     private Category category;
 
+    public Category getCategory() {
+        return category;
+    }
+
     public Item(String name, String comment, double price, Category category) {
         super(name, comment);
         this.price = price;
