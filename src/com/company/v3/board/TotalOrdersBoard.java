@@ -2,6 +2,8 @@ package com.company.v3.board;
 
 import com.company.v3.domain.TotalOrders;
 
+import java.util.Scanner;
+
 public class TotalOrdersBoard {
     public void printTotalOrdersBoard(TotalOrders totalOrders){
 

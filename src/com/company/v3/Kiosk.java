@@ -48,6 +48,7 @@ public class Kiosk {
 
             //itemBoard 선택
             int inputMenu = scanner.nextInt();
+
             //TotalOrdersBoard
             if(inputMenu == 0){
                 totalOrdersBoard.printTotalOrdersBoard(totalOrders);
