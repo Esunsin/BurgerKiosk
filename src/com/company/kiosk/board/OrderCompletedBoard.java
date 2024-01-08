@@ -1,4 +1,4 @@
-package com.company.V4.board;
+package com.company.kiosk.board;
 
 public class OrderCompletedBoard {
     public int printOrderCompleted(int waitingNumber) throws InterruptedException {

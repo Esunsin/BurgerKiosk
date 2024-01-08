@@ -1,4 +1,4 @@
-package com.company.V4.domain;
+package com.company.kiosk.domain;
 
 public enum Category {
     BURGERS,

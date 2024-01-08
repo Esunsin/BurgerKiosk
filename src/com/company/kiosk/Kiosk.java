@@ -1,12 +1,12 @@
-package com.company.V4;
+package com.company.kiosk;
 
 
-import com.company.V4.board.*;
-import com.company.V4.data.InitializeItemAndMenu;
-import com.company.V4.domain.Item;
-import com.company.V4.domain.Menu;
-import com.company.V4.domain.Orders;
-import com.company.V4.domain.TotalOrders;
+import com.company.kiosk.board.*;
+import com.company.kiosk.data.InitializeItemAndMenu;
+import com.company.kiosk.domain.Item;
+import com.company.kiosk.domain.Menu;
+import com.company.kiosk.domain.Orders;
+import com.company.kiosk.domain.TotalOrders;
 
 import java.util.List;
 import java.util.Scanner;

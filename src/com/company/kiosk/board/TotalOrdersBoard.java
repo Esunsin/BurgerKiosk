@@ -1,6 +1,6 @@
-package com.company.V4.board;
+package com.company.kiosk.board;
 
-import com.company.V4.domain.TotalOrders;
+import com.company.kiosk.domain.TotalOrders;
 
 import java.util.Scanner;
 

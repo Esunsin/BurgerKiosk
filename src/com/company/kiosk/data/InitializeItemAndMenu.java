@@ -1,9 +1,9 @@
-package com.company.V4.data;
+package com.company.kiosk.data;
 
 
-import com.company.V4.domain.Category;
-import com.company.V4.domain.Item;
-import com.company.V4.domain.Menu;
+import com.company.kiosk.domain.Category;
+import com.company.kiosk.domain.Item;
+import com.company.kiosk.domain.Menu;
 
 import java.util.ArrayList;
 import java.util.List;

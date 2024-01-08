@@ -1,8 +1,7 @@
-package com.company.V4.board;
+package com.company.kiosk.board;
 
-import com.company.V4.domain.Item;
+import com.company.kiosk.domain.Item;
 
-import java.util.List;
 import java.util.Scanner;
 
 public class BuyBoard {
