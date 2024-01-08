@@ -13,10 +13,6 @@ import java.util.Scanner;
 
 
 public class Kiosk {
-    /**
-     * 한번에 주문하기 안됨.
-     * 한개씩 삭제 안됨.
-     */
     void on() throws InterruptedException {
         Scanner scanner = new Scanner(System.in);
 
@@ -25,25 +21,25 @@ public class Kiosk {
         //초기 메뉴값 설정
         InitializeItemAndMenu initializeItemAndMenu = new InitializeItemAndMenu();
         List<Menu> menus = initializeItemAndMenu.initMenu();
-        List<Item> burger = initializeItemAndMenu.initBurger();
-        List<Item> frozen = initializeItemAndMenu.initFrozenCustard();
-        List<Item> drink = initializeItemAndMenu.initDrink();
-        List<Item> beer = initializeItemAndMenu.initBeer();
+        int menuCount = menus.size();
+        List<Item> burgers = initializeItemAndMenu.initBurger();
+        List<Item> frozenCustards = initializeItemAndMenu.initFrozenCustard();
+        List<Item> drinks = initializeItemAndMenu.initDrink();
+        List<Item> beers = initializeItemAndMenu.initBeer();
 
-        TotalOrders totalOrders =new TotalOrders();
 
         //할당
         MainBoard mainBoard = new MainBoard();
         ItemBoard itemBoard = new ItemBoard();
         BuyBoard buyBoard = new BuyBoard();
         OrderBoard orderBoard = new OrderBoard();
-        OrderCompletedBoard orderCompletedBoard = new OrderCompletedBoard();
         CancelBoard cancelBoard = new CancelBoard();
         TotalOrdersBoard totalOrdersBoard = new TotalOrdersBoard();
 
-        int menuCount = menus.size();
+        TotalOrders totalOrders =new TotalOrders();
 
         int waitingNumber = 1;
+
         while(true) {
             //mainBoard
             mainBoard.printMainBoard(menus);
@@ -56,49 +52,21 @@ public class Kiosk {
                 totalOrdersBoard.printTotalOrdersBoard(totalOrders);
                 totalOrdersBoard.backToMainBoard();
             }
-            //burger
+            //burgers
             if (inputMenu == 1) {
-                itemBoard.printItemBoard(burger);
-
-                int inputItemNumber = buyBoard.printSelectBuyItem(burger.size());
-                Item selectedItem = burger.get(inputItemNumber);
-
-                if(buyBoard.isBuyItem(selectedItem)){
-                    orders.addOrder(selectedItem);
-                }
+                itemBoard.selectedItemBoard(orders,burgers,itemBoard,buyBoard);
             }
-            //frozen custard
+            //frozenCustards custard
             if (inputMenu == 2) {
-                itemBoard.printItemBoard(frozen);
-
-                int inputItemNumber = buyBoard.printSelectBuyItem(frozen.size());
-                Item selectedItem = frozen.get(inputItemNumber);
-
-                if(buyBoard.isBuyItem(selectedItem)){
-                    orders.addOrder(selectedItem);
-                }
+                itemBoard.selectedItemBoard(orders,frozenCustards,itemBoard,buyBoard);
             }
-            //drink
+            //drinks
             if (inputMenu == 3) {
-                itemBoard.printItemBoard(drink);
-
-                int inputItemNumber = buyBoard.printSelectBuyItem(drink.size());
-                Item selectedItem = drink.get(inputItemNumber);
-
-                if(buyBoard.isBuyItem(selectedItem)){
-                    orders.addOrder(selectedItem);
-                }
+                itemBoard.selectedItemBoard(orders,drinks,itemBoard,buyBoard);
             }
-            //beer
+            //beers
             if (inputMenu == 4) {
-                itemBoard.printItemBoard(beer);
-
-                int inputItemNumber = buyBoard.printSelectBuyItem(beer.size());
-                Item selectedItem = beer.get(inputItemNumber);
-
-                if(buyBoard.isBuyItem(selectedItem)){
-                    orders.addOrder(selectedItem);
-                }
+                itemBoard.selectedItemBoard(orders,beers,itemBoard,buyBoard);
             }
             //orderBoard
             if (inputMenu == menuCount + 1) {
@@ -106,7 +74,7 @@ public class Kiosk {
                     totalOrders.addTotalOrders(orders);
                     totalOrders.calculateOrdersPrice(orders);
                     orders.clearOrders();
-                    waitingNumber = orderCompletedBoard.printOrderCompleted(waitingNumber);
+                    waitingNumber = orderBoard.printOrderCompleted(waitingNumber);
                 }
             }
 
@@ -115,10 +83,9 @@ public class Kiosk {
                 cancelBoard.printCancelBoard(orders);
             }
 
-            //종료
+            //예외
             if(inputMenu > menuCount+2){
-                System.out.println("메뉴에 없는 숫자입니다. 종료하겠습니다.");
-                break;
+                System.out.println("메뉴에 없는 숫자입니다. 메인으로 돌아갑니다.");
             }
         }
     }

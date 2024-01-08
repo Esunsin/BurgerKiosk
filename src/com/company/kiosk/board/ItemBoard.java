@@ -1,6 +1,7 @@
 package com.company.kiosk.board;
 
 import com.company.kiosk.domain.Item;
+import com.company.kiosk.domain.Orders;
 
 import java.util.List;
 
@@ -16,5 +17,14 @@ public class ItemBoard {
             i++;
         }
     }
+    public void selectedItemBoard(Orders orders , List<Item> items , ItemBoard itemBoard,BuyBoard buyBoard){
+        itemBoard.printItemBoard(items);
 
+        int inputItemNumber = buyBoard.printSelectBuyItem(items.size());
+        Item selectedItem = items.get(inputItemNumber);
+
+        if(buyBoard.isBuyItem(selectedItem)){
+            orders.addOrder(selectedItem);
+        }
+    }
 }

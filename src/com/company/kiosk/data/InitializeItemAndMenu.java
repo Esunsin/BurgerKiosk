@@ -12,6 +12,7 @@ import java.util.List;
  * 초기값
  */
 public class InitializeItemAndMenu {
+
     public List<Menu> initMenu() {
         List<Menu> menuList = new ArrayList<>();
         Menu menu1 = new Menu("Burgers", "앵거스 비프 통살을 다져만든 버거");
