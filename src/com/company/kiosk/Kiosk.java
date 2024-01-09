@@ -19,14 +19,8 @@ public class Kiosk {
         Orders orders = new Orders();
 
         //초기 메뉴값 설정
-        InitializeItemAndMenu initializeItemAndMenu = new InitializeItemAndMenu();
-        List<Menu> menus = initializeItemAndMenu.initMenu();
-        int menuCount = menus.size();
-        List<Item> burgers = initializeItemAndMenu.initBurger();
-        List<Item> frozenCustards = initializeItemAndMenu.initFrozenCustard();
-        List<Item> drinks = initializeItemAndMenu.initDrink();
-        List<Item> beers = initializeItemAndMenu.initBeer();
-
+        InitializeItemAndMenu data = new InitializeItemAndMenu();
+        int menuCount = data.menus().size();
 
         //할당
         MainBoard mainBoard = new MainBoard();
@@ -42,7 +36,7 @@ public class Kiosk {
 
         while(true) {
             //mainBoard
-            mainBoard.printMainBoard(menus);
+            mainBoard.printMainBoard(data.menus());
 
             //itemBoard 선택
             int inputMenu = scanner.nextInt();
@@ -54,19 +48,19 @@ public class Kiosk {
             }
             //burgers
             if (inputMenu == 1) {
-                itemBoard.selectedItemBoard(orders,burgers,itemBoard,buyBoard);
+                itemBoard.selectedItemBoard(orders,data.burgers(),buyBoard);
             }
             //frozenCustards custard
             if (inputMenu == 2) {
-                itemBoard.selectedItemBoard(orders,frozenCustards,itemBoard,buyBoard);
+                itemBoard.selectedItemBoard(orders,data.frozenCustards(),buyBoard);
             }
             //drinks
             if (inputMenu == 3) {
-                itemBoard.selectedItemBoard(orders,drinks,itemBoard,buyBoard);
+                itemBoard.selectedItemBoard(orders,data.drinks(),buyBoard);
             }
             //beers
             if (inputMenu == 4) {
-                itemBoard.selectedItemBoard(orders,beers,itemBoard,buyBoard);
+                itemBoard.selectedItemBoard(orders,data.beers(),buyBoard);
             }
             //orderBoard
             if (inputMenu == menuCount + 1) {

@@ -23,6 +23,7 @@ public class Item extends Menu {
         return price;
     }
 
+
     @Override
     public String toString() {
         return getName() + "\t| W "
@@ -41,4 +42,5 @@ public class Item extends Menu {
     public void clearQuantityItem(){
         this.quantity = 0;
     }
+
 }

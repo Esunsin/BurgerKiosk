@@ -17,8 +17,8 @@ public class ItemBoard {
             i++;
         }
     }
-    public void selectedItemBoard(Orders orders , List<Item> items , ItemBoard itemBoard,BuyBoard buyBoard){
-        itemBoard.printItemBoard(items);
+    public void selectedItemBoard(Orders orders , List<Item> items , BuyBoard buyBoard){
+        printItemBoard(items);
 
         int inputItemNumber = buyBoard.printSelectBuyItem(items.size());
         Item selectedItem = items.get(inputItemNumber);

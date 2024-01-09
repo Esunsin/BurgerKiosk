@@ -13,7 +13,33 @@ import java.util.List;
  */
 public class InitializeItemAndMenu {
 
-    public List<Menu> initMenu() {
+    final private List<Menu> menus = initMenu();
+    final private List<Item> burgers = initBurger();
+    final private List<Item> frozenCustards = initFrozenCustard();
+    final private List<Item> drinks = initDrink();
+    final private List<Item> beers = initBeer();
+
+    public List<Menu> menus() {
+        return menus;
+    }
+
+    public List<Item> burgers() {
+        return burgers;
+    }
+
+    public List<Item> frozenCustards() {
+        return frozenCustards;
+    }
+
+    public List<Item> drinks() {
+        return drinks;
+    }
+
+    public List<Item> beers() {
+        return beers;
+    }
+
+    private List<Menu> initMenu() {
         List<Menu> menuList = new ArrayList<>();
         Menu menu1 = new Menu("Burgers", "앵거스 비프 통살을 다져만든 버거");
         menuList.add(menu1);
@@ -22,7 +48,7 @@ public class InitializeItemAndMenu {
         menuList.add(new Menu("Beer", "뉴욕 브루클린 브루어리에서 양조한 맥주"));
         return menuList;
     }
-    public List<Item> initBurger(){
+    private List<Item> initBurger(){
         List<Item> itemList = new ArrayList<>();
         itemList.add(new Item("ShackBurger","토마토, 양상추, 쉑소스가 토핑된 치즈버거",6.9, Category.BURGERS));
         itemList.add(new Item("SmokeShack","베이컨, 체리 페퍼에 쉑소스가 토핑된 치즈버거",8.9, Category.BURGERS));
@@ -31,21 +57,21 @@ public class InitializeItemAndMenu {
         itemList.add(new Item("Hamburger","비프패티를 기반으로 야채가 들어간 기본버거",5.4, Category.BURGERS));
         return itemList;
     }
-    public List<Item> initFrozenCustard(){
+    private List<Item> initFrozenCustard(){
         List<Item> itemList = new ArrayList<>();
         itemList.add(new Item("Strawberry IceCream","딸기맛 아이스크림",2.9, Category.FORZEN_CUSTARD));
         itemList.add(new Item("Vanilla IceCream","바닐라맛 아이스크림",3.9, Category.FORZEN_CUSTARD));
         itemList.add(new Item("Mint IceCream","민트맛 아이스크림",3.5, Category.FORZEN_CUSTARD));
         return itemList;
     }
-    public List<Item> initDrink(){
+    private List<Item> initDrink(){
         List<Item> itemList = new ArrayList<>();
         itemList.add(new Item("Coke","콜라",1.9, Category.DRINKS));
         itemList.add(new Item("Sprite","사이다",1.9, Category.DRINKS));
         itemList.add(new Item("Water","물",1.0, Category.DRINKS));
         return itemList;
     }
-    public List<Item> initBeer(){
+    private List<Item> initBeer(){
         List<Item> itemList = new ArrayList<>();
         itemList.add(new Item("Lager","투명한 황금빛과 가볍고 밋밋한 향, 강한 탄산감이 특징인 맥주",5.9, Category.BEER));
         itemList.add(new Item("Ale","상대적으로 높은 온도에서 발효시켜, 달콤하고 풀 바디감이 느껴지며 과일향이 있는 맥주",7.9, Category.BEER));
